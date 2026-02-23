@@ -5,6 +5,7 @@ import {
   AVAILABLE_VOICES,
 } from "@/lib/constants";
 import { LiveManager } from "@/services/liveManager";
+import { useApiKeyStore } from "@/store/useApiKeyStore";
 import { ConnectionState, TranscriptItem } from "@/types";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
@@ -67,13 +68,14 @@ export const useAudioStore = create<AudioStore>()(
     connect: async () => {
       const state = get();
 
-      // get ephemeral token
-      const response = await fetch("/api/token");
-      if (!response.ok) {
-        set({ error: "failed to generate token" });
+      const apiKey = useApiKeyStore.getState().apiKey;
+      if (!apiKey) {
+        set({
+          error:
+            "Please add your Gemini API key in the top-right before connecting.",
+        });
+        return;
       }
-
-      const { token } = await response.json();
 
       if (
         state.conectionState ===
@@ -139,7 +141,7 @@ export const useAudioStore = create<AudioStore>()(
             },
             onAudioLevel: () => {},
           },
-          token.name,
+          apiKey,
         );
 
         set({ liveManagerInstance: manager });
