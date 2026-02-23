@@ -34,7 +34,7 @@ export class LiveManager {
   private nextStartTime = 0;
   private sources = new Set<AudioBufferSourceNode>();
   private callbacks: LiveManagerCallbacks;
-  private isMuted: boolean;
+  private isMuted: boolean = false;
 
   private inputTranscription = "";
   private outputTranscription = "";
