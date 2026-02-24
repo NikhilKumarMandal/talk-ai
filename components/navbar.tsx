@@ -7,7 +7,7 @@ import Image from "next/image";
 import LeftSidebar from "@/components/left-sidebar";
 import RightSidebar from "@/components/right-sidebar";
 
-import { KeyRound, LucideLanguages, Settings2 } from "lucide-react";
+import { KeyRound, LucideLanguages, Settings2, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useApiKeyStore } from "@/store/useApiKeyStore";
 
@@ -153,6 +153,18 @@ export function Navbar() {
               </div>
             </SheetContent>
           </Sheet>
+
+          {/* GitHub repo link */}
+          <Link
+            href="https://github.com/NikhilKumarMandal/talk-ai"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button variant="ghost" size="icon" className="h-9 w-9">
+              <Github className="h-5 w-5" />
+              <span className="sr-only">Open GitHub repository</span>
+            </Button>
+          </Link>
 
           {/* Transcript (mobile) */}
           <div className="lg:hidden">
