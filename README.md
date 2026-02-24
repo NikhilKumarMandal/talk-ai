@@ -10,7 +10,7 @@
 - Provides **real-time grammar and clarity corrections**  
 - Improves **tone, style, and professional communication**  
 - Web-based interface – easy and intuitive to use  
-- Built with **OpenAI API**, **React.js**, and **Node.js**
+- Built with **GEMINI API**, **React.js**, and **Node.js**
 
 ---
 
