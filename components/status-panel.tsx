@@ -14,7 +14,7 @@ function StatusPanel() {
     conectionState === ConnectionState.CONNECTING;
 
   return (
-    <div className="absolute top-6 left-0 right-0 flex flex-col items-center gap-4 z-20 pointer-events-none">
+    <div className="flex flex-col items-center gap-4 w-full max-w-md pointer-events-none">
       {/* Error Toast */}
       {error && (
         <div className="bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 px-4 py-2 rounded-full text-sm border border-red-200 dark:border-red-500/20 flex items-center gap-2 shadow-lg animate-in fade-in slide-in-from-top-4 pointer-events-auto">
@@ -27,24 +27,24 @@ function StatusPanel() {
         className={cn(
           "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-500 flex items-center gap-2 backdrop-blur-sm shadow-sm",
 
-          // 1. Connecting -> BLUE
+          // 1. Connecting -> primary with pulse
           isConnecting
-            ? "bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20 animate-pulse"
-            : // 2. Connected -> GREEN (Emerald)
+            ? "bg-primary/10 text-primary border-primary/40 dark:bg-primary/20 dark:text-primary-foreground/80 dark:border-primary/60 animate-pulse"
+            : // 2. Connected -> solid primary
               isConnected
-              ? "bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20"
-              : // 3. Default (Ready) -> YELLOW / AMBER (Theme Aligned)
-                "bg-amber-50 text-amber-700 border-amber-200 dark:bg-[#ffa809]/10 dark:text-[#ffa809] dark:border-[#ffa809]/20",
+              ? "bg-primary/15 text-primary border-primary/50 dark:bg-primary/25 dark:text-primary-foreground dark:border-primary/70"
+              : // 3. Default (Ready) -> subtle muted state
+                "bg-muted text-muted-foreground border-border dark:bg-muted/20 dark:text-muted-foreground dark:border-border/60",
         )}>
         <div
           className={cn(
             "w-2 h-2 rounded-full",
             // Dot Color
             isConnecting
-              ? "bg-blue-500"
+              ? "bg-primary/80"
               : isConnected
-                ? "bg-emerald-500"
-                : "bg-[#ffa809]", // Your Brand Yellow
+                ? "bg-primary"
+                : "bg-muted-foreground",
           )}
         />
         {isConnecting

@@ -27,7 +27,7 @@ function VisualizationPanel() {
         {/* The Orb Background */}
         <div className="absolute inset-0 z-10 flex items-center justify-center">
           <Orb
-            colors={["#FFD439", "#FFD439"]}
+            colors={["#1D4ED8", "#60A5FA"]}
             agentState={
               isConnected ? agentState : "thinking"
             }
@@ -62,7 +62,7 @@ function VisualizationPanel() {
           active={isConnected}
           processing={isConnecting}
           mode="static"
-          barColor={"#ffa809"}
+          barColor={"#38bdf8"}
           barWidth={4}
           barGap={4}
           height={80}

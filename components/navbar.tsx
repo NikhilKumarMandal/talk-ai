@@ -60,7 +60,7 @@ export function Navbar() {
         {/* CENTER: Logo (Larger) */}
         <Link
           href="/"
-          className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3"
+          className="flex items-center gap-3 mx-auto md:absolute md:left-1/2 md:-translate-x-1/2"
         >
           <div className="relative h-11 w-11 overflow-hidden rounded-md">
             <Image

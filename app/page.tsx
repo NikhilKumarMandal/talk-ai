@@ -19,25 +19,26 @@ const App = () => {
 
         <main className="flex-1 relative flex flex-col min-w-0 overflow-hidden">
           <div
-            className="absolute inset-0 opacity-[0.05]"
+            className="pointer-events-none absolute inset-0 opacity-[0.05]"
             style={{
               backgroundImage: "radial-gradient(#fff 1px, transparent 1px)",
               backgroundSize: "20px 20px",
             }}
           ></div>
-          {/* Top Status Bar */}
-          <div className="absolute top-4 left-0 right-0 z-10 flex justify-center pointer-events-none">
-            <StatusPanel />
-          </div>
 
-          {/* Center Visualization (Takes available space) */}
-          <div className="flex-1 w-full h-full flex items-center justify-center">
-            <VisualizationPanel />
-          </div>
+          <div className="relative z-10 flex h-full flex-col items-center gap-6 px-4 py-6 sm:py-8 md:py-10">
+            {/* Top Status Bar */}
+            <div className="w-full flex justify-center">
+              <StatusPanel />
+            </div>
 
-          {/* Bottom Controls */}
-          <div className="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center z-20 px-4 pointer-events-none">
-            <div className="pointer-events-auto">
+            {/* Center Visualization (Takes available space) */}
+            <div className="flex-1 w-full flex items-center justify-center">
+              <VisualizationPanel />
+            </div>
+
+            {/* Bottom Controls */}
+            <div className="w-full flex justify-center">
               <ControlsPanel />
             </div>
           </div>
